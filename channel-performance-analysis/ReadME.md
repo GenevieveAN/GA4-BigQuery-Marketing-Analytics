@@ -6,8 +6,9 @@ Analysis of Google Analytics data reveals significant performance disparities ac
 **Key finding**: current marketing investment may be misaligned with channel profitability, suggesting opportunities for budget reallocation and strategic channel development.
 
 
-Key Findings
-Revenue Efficiency Leaders
+## Key Findings ##
+
+### Revenue Efficiency Leaders ###
 
 Referral: $12.59 revenue per session (436 sessions, $5,488.78 total revenue)
 Direct: $6.37 revenue per session (400 sessions, $2,548.91 total revenue)
