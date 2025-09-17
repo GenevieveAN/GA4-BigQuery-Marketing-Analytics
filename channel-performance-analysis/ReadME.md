@@ -2,7 +2,8 @@
 
 ## Executive Summary ##
 Analysis of Google Analytics data reveals significant performance disparities across marketing channels, with Referral traffic delivering 23x higher revenue per session than Organic Search despite lower volume. 
-Key finding: current marketing investment may be misaligned with channel profitability, suggesting opportunities for budget reallocation and strategic channel development.
+
+### Key finding: current marketing investment may be misaligned with channel profitability, suggesting opportunities for budget reallocation and strategic channel development.
 
 
 Key Findings
