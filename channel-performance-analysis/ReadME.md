@@ -8,7 +8,7 @@ Analysis of Google Analytics data reveals significant performance disparities ac
 
 ## Key Findings ##
 
-### Revenue Efficiency Leaders ###
+### Highest Revenue-Generating Channels (per session) ###
 
 - Referral: $12.59 revenue per session (436 sessions, $5,488.78 total revenue)
 - Direct: $6.37 revenue per session (400 sessions, $2,548.91 total revenue)
@@ -17,9 +17,9 @@ Analysis of Google Analytics data reveals significant performance disparities ac
 
 ### Volume vs Value Disconnect ###
 
-Organic Search: Highest traffic volume (1,346 sessions) but lowest efficiency ($0.54 per session)
-Social: High volume (213 sessions) with zero conversions
-Display: Moderate engagement (4.4 pages/session) with minimal revenue impact
+- Organic Search: Highest traffic volume (1,346 sessions) but lowest efficiency ($0.54 per session)
+- Social: High volume (213 sessions) with zero conversions
+- Display: Moderate engagement (4.4 pages/session) with minimal revenue impact
 
 
 ### Engagement Insights ###
