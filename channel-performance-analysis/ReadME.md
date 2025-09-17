@@ -24,9 +24,9 @@ Analysis of Google Analytics data reveals significant performance disparities ac
 
 ### Engagement Insights ###
 
-- Referral traffic shows highest engagement: 7.42 pages per session average
-- Paid Search demonstrates strong intent: 6.63 pages per session with consistent conversion
-- Social traffic lacks depth: 1.83 pages per session with no revenue generation
+- Referral traffic shows highest engagement: 7.42 pages per session on average
+- Paid Search demonstrates strong user intent: 6.63 pages per session with consistent conversion
+- Social is effective at driving users to the website for revenue conversion opportunities.
 
 ## Business Implications ##
 
@@ -51,7 +51,7 @@ Analysis of Google Analytics data reveals significant performance disparities ac
 
 ### Strategic Initiatives (30-90 days) ###
 
-- Develop systematic referral program with incentives for high-value partner channels
+- Develop a systematic referral program with incentives for high-value partner channels
 - Optimize organic search content for commercial intent keywords to improve revenue per session
 - Reallocate 20% of paid social budget toward referral program development based on efficiency metrics
 
