@@ -70,8 +70,11 @@ FROM funnel_data
 WHERE product_views > 0
 ORDER BY overall_conversion_rate DESC
 ```
-### Key Findings
-Funnel Performance by Channel
+
+## Key Findings
+
+### Funnel Performance by Channel
+
 | Channel | View→Cart | Cart→Checkout | Checkout→Purchase | Overall Conversion |
 |---------|-----------|---------------|-------------------|-------------------|
 | **Display** | 76.5% | 38.5% | 40.0% | 11.8% |
