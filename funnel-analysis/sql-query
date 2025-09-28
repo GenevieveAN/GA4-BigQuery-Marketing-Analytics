@@ -1,0 +1,236 @@
+-- Exploratory Analysis query --
+
+SELECT 
+eCommerceAction.action_type,
+  COUNT (totals.pageviews) AS Page_views,
+  COUNT (totals.timeOnSite) AS Time_on_page, 
+  COUNT (totals.transactions) AS Purchases,
+  SUM (totals.totalTransactionRevenue) AS Total_Revenue
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`
+WHERE totals.pageviews IS NOT NULL
+LIMIT 20;
+
+
+
+-- EcommerceAction was identified as a possible source of funnel data --
+
+SELECT 
+  eCommerceAction.action_type,
+  COUNT(totals.pageviews) AS Page_views,
+  COUNT(totals.transactions) AS Purchases
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`
+WHERE totals.pageviews IS NOT NULL
+LIMIT 10
+
+-- When the query above failed, it was an indiation that ecommerce metrics were likely nested in 'hits'. The subsequent query was run with th aim of unnesting 'hits' --
+
+SELECT 
+  hit.eCommerceAction.action_type,
+  COUNT(*) as action_count
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IS NOT NULL
+GROUP BY hit.eCommerceAction.action_type
+LIMIT 10
+
+
+-- Attempt to identify ecommerce events firing by channel. --
+
+SELECT 
+channelGrouping,
+  COUNT (hit.eCommerceAction.action_type),
+  COUNT(*) as action_count
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IS NOT NULL
+GROUP BY channelGrouping
+LIMIT 10
+
+
+-- Grouping by channelGroup did not provide the desired output, so I'm going to try grouping by action_type instead --
+
+SELECT 
+channelGrouping,
+COUNT(*) AS total_sessions,
+  hit.eCommerceAction.action_type,
+  COUNT(*) as action_count
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IS NOT NULL
+GROUP BY hit.eCommerceAction.action_type
+LIMIT 10
+
+-- The above query did not work because when you use GROUP BY, every non-aggregated field in your SELECT clause needs to be included in the GROUP BY clause. 
+  This allows SQL to properly execute when there are multiple hits tied to the same Channel Group --
+
+
+SELECT 
+channelGrouping,
+COUNT(*) AS total_sessions,
+  hit.eCommerceAction.action_type,
+  COUNT(*) as action_count
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IS NOT NULL
+GROUP BY channelGrouping, hit.eCommerceAction.action_type
+LIMIT 10
+
+-- The above query ran successfully, but I noticed that GROUP BY only accounts for how these values should be counted, not how they should be displayed. I will include ORDER BY in the subsequent query to ensure that the results are displayed in a more comprehensive and parsable manner --
+
+
+SELECT 
+channelGrouping,
+COUNT(*) AS total_sessions,
+  hit.eCommerceAction.action_type,
+  COUNT(*) as action_count
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IS NOT NULL
+GROUP BY channelGrouping, hit.eCommerceAction.action_type
+ORDER BY channelGrouping, hit.eCommerceAction.action_type
+LIMIT 20
+
+-- Running the query without limits to see the whole dataset --
+
+SELECT 
+  channelGrouping,
+  hit.eCommerceAction.action_type,
+  COUNT(*) as action_count
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IS NOT NULL
+GROUP BY channelGrouping, hit.eCommerceAction.action_type
+ORDER BY channelGrouping, hit.eCommerceAction.action_type
+
+-- Isolate ecommerce activities 1 and 6 to calculate overall conversion rate
+
+SELECT 
+  channelGrouping,
+  hit.eCommerceAction.action_type,
+  COUNT(*) as action_count
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IN ('1', '6')
+GROUP BY channelGrouping, hit.eCommerceAction.action_type
+ORDER BY channelGrouping, hit.eCommerceAction.action_type
+
+-- Calculate conversion rates --
+
+SELECT 
+  channelGrouping,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '1' THEN 1 ELSE 0 END) as first_actions,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '6' THEN 1 ELSE 0 END) as purchases,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '6' THEN 1 ELSE 0 END) / 
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '1' THEN 1 ELSE 0 END) * 100 as conversion_rate
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IN ('1', '6')
+GROUP BY channelGrouping
+ORDER BY conversion_rate DESC
+
+
+-- Creating designated columns for each step in the funnel, as a first step to visualizing funnel progression and also to see the raw counts at each stage. --
+
+SELECT 
+  channelGrouping,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '0' THEN 1 ELSE 0 END) as stage_0_other,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '1' THEN 1 ELSE 0 END) as stage_1_product_view,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '2' THEN 1 ELSE 0 END) as stage_2_add_cart,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '3' THEN 1 ELSE 0 END) as stage_3_remove_cart,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '4' THEN 1 ELSE 0 END) as stage_4_checkout,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '5' THEN 1 ELSE 0 END) as stage_5_checkout_steps,
+  SUM(CASE WHEN hit.eCommerceAction.action_type = '6' THEN 1 ELSE 0 END) as stage_6_purchase
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+UNNEST(hits) AS hit
+WHERE hit.eCommerceAction.action_type IS NOT NULL
+GROUP BY channelGrouping
+ORDER BY stage_6_purchase DESC
+
+
+
+
+-- Complementing the raw counts with conversion rate calculations between each major stage. Showing the overall conversion rate from product view to purchase. NULLIF helps to avoid division by zero errors. The ROUND function helps to make percentages easier to read. --
+
+WITH funnel_data AS (
+  SELECT 
+    channelGrouping,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '1' THEN 1 ELSE 0 END) as product_views,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '2' THEN 1 ELSE 0 END) as add_to_cart,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '3' THEN 1 ELSE 0 END) as remove_from_cart,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '4' THEN 1 ELSE 0 END) as checkout_start,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '5' THEN 1 ELSE 0 END) as checkout_steps,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '6' THEN 1 ELSE 0 END) as purchases
+  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+  UNNEST(hits) AS hit
+  WHERE hit.eCommerceAction.action_type IS NOT NULL
+  GROUP BY channelGrouping
+)
+SELECT 
+  channelGrouping,
+  product_views,
+  add_to_cart,
+  checkout_start,
+  purchases,
+  ROUND(100.0 * add_to_cart / NULLIF(product_views, 0), 1) as view_to_cart_rate,
+  ROUND(100.0 * checkout_start / NULLIF(add_to_cart, 0), 1) as cart_to_checkout_rate,
+  ROUND(100.0 * purchases / NULLIF(checkout_start, 0), 1) as checkout_to_purchase_rate,
+  ROUND(100.0 * purchases / NULLIF(product_views, 0), 1) as overall_conversion_rate
+FROM funnel_data
+WHERE product_views > 0
+ORDER BY overall_conversion_rate DESC
+
+
+-- I realize I didn't account for cart abandonment scenarios. This subsequent query includes cart abandonment rates for a more comprehensive picture --
+
+
+
+WITH funnel_data AS (
+  SELECT 
+    channelGrouping,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '1' THEN 1 ELSE 0 END) as product_views,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '2' THEN 1 ELSE 0 END) as add_to_cart,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '3' THEN 1 ELSE 0 END) as remove_from_cart,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '4' THEN 1 ELSE 0 END) as checkout_start,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '5' THEN 1 ELSE 0 END) as checkout_steps,
+    SUM(CASE WHEN hit.eCommerceAction.action_type = '6' THEN 1 ELSE 0 END) as purchases
+  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
+  UNNEST(hits) AS hit
+  WHERE hit.eCommerceAction.action_type IS NOT NULL
+  GROUP BY channelGrouping
+)
+SELECT 
+  channelGrouping,
+  product_views,
+  add_to_cart,
+  remove_from_cart,
+  checkout_start,
+  checkout_steps,
+  purchases,
+  -- Net cart and abandonment
+  (add_to_cart - remove_from_cart) as net_cart_adds,
+  ROUND(100.0 * remove_from_cart / NULLIF(add_to_cart, 0), 1) as cart_abandonment_rate,
+  
+  -- Key conversion rates using checkout_steps as the main checkout metric
+  ROUND(100.0 * add_to_cart / NULLIF(product_views, 0), 1) as view_to_cart_rate,
+  ROUND(100.0 * checkout_steps / NULLIF(add_to_cart, 0), 1) as cart_to_checkout_rate,
+  ROUND(100.0 * purchases / NULLIF(checkout_steps, 0), 1) as checkout_completion_rate,
+  ROUND(100.0 * purchases / NULLIF(product_views, 0), 1) as overall_conversion_rate,
+  
+  -- Identify biggest drop-off including checkout_steps
+  CASE 
+    WHEN (product_views - add_to_cart) > (add_to_cart - checkout_steps) 
+         AND (product_views - add_to_cart) > (checkout_steps - purchases)
+    THEN 'Product View to Cart'
+    WHEN (add_to_cart - checkout_steps) > (checkout_steps - purchases)
+    THEN 'Cart to Checkout Process'
+    ELSE 'Checkout Process to Purchase'
+  END as biggest_drop_off_stage,
+  
+  -- Additional diagnostic: volume lost at each stage
+  (product_views - add_to_cart) as lost_at_cart,
+  (add_to_cart - checkout_steps) as lost_before_checkout,
+  (checkout_steps - purchases) as lost_during_checkout
+  
+FROM funnel_data
+WHERE product_views > 0
+ORDER BY overall_conversion_rate DESC
