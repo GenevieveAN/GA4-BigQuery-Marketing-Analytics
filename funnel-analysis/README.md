@@ -109,9 +109,9 @@ ALL channels show "Cart to Checkout" as the biggest drop-off point:
 
 
 #### Organic Search
-Highest volume but lowest quality
-85% abandon before checkout
-Lowest checkout completion (16.9%)
+- Highest volume but lowest quality
+- 85% abandon before checkout
+- Lowest checkout completion (16.9%)
 
 
 
