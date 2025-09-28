@@ -84,32 +84,31 @@ ORDER BY overall_conversion_rate DESC
 | **Organic Search** | 73.4% | 14.8% | 16.9% | 1.8% |
 
 
-Critical Discovery: Universal Cart-to-Checkout Bottleneck
+#### Critical Discovery:
+Universal Cart-to-Checkout Bottleneck
 ALL channels show "Cart to Checkout" as the biggest drop-off point:
 
-Organic Search: Lost 410 users (85% drop-off)
-Direct: Lost 236 users (84% drop-off)
-Referral: Lost 171 users (46% drop-off)
-Paid Search: Lost 69 users (92% drop-off)
-
-Channel-Specific Insights
-
-Referral Traffic
-
-Best at moving users from cart to checkout (54.2%)
-High cart abandonment rate (66.8% remove items)
-Lower checkout completion (28.7%) suggests price sensitivity
+- Organic Search: Lost 410 users (85% drop-off)
+- Direct: Lost 236 users (84% drop-off)
+- Referral: Lost 171 users (46% drop-off)
+- Paid Search: Lost 69 users (92% drop-off)
 
 
-Direct Traffic
+### Channel-Specific Insights
 
-Highest view-to-cart conversion (82.6%)
-Massive cart-to-checkout drop (84% lost)
-Strong checkout completion (40%) for those who start
+#### Referral Traffic
+- Best at moving users from cart to checkout (54.2%)
+- High cart abandonment rate (66.8% remove items)
+- Lower checkout completion (28.7%) suggests price sensitivity
 
 
-Organic Search
+#### Direct Traffic
+- Highest view-to-cart conversion (82.6%)
+- Massive cart-to-checkout drop (84% lost)
+- Strong checkout completion (40%) for those who start
 
+
+#### Organic Search
 Highest volume but lowest quality
 85% abandon before checkout
 Lowest checkout completion (16.9%)
@@ -126,17 +125,17 @@ Investigate:
 -  issues - Test checkout button functionality across devices
 
 ### Priority 2: Channel-Specific Optimizations
-For Referral (High-value traffic):
+#### For Referral (High-value traffic):
 - Implement cart abandonment email campaigns
 - Test free shipping thresholds
 - Add urgency messaging for users with items in cart
 
-For Direct (Brand-loyal traffic):
+#### For Direct (Brand-loyal traffic):
 - Simplify checkout initiation
 - Add express checkout options (Apple Pay, PayPal)
 - These users trust you but face friction
 
-For Paid Channels:
+#### For Paid Channels:
 - Reassess targeting - 2% conversion doesn't justify spend
 - Reallocate budget to referral partnerships
 
@@ -151,19 +150,19 @@ Improving cart-to-checkout conversion by just 10% would yield:
 
 ## Technical Skills Demonstrated
 
-SQL: Complex queries with CTEs, CASE statements, UNNEST operations
-Data Analysis: Funnel metrics, conversion rate optimization
-Problem-Solving: Identified hidden bottlenecks in customer journey
-Business Acumen: Translated data insights into actionable recommendations
+- SQL: Complex queries with CTEs, CASE statements, UNNEST operations
+- Data Analysis: Funnel metrics, conversion rate optimization
+-  Problem-Solving: Identified hidden bottlenecks in customer journey
+- Business Acumen: Translated data insights into actionable recommendations
 
 
 
 ## Next Steps
 
-Temporal analysis: Track funnel improvements over time
-Segmentation: Analyze by device type, new vs. returning users
-Revenue impact: Calculate lost revenue at each drop-off point
-A/B testing: Measure impact of checkout optimizations
+- Temporal analysis: Track funnel improvements over time
+- Segmentation: Analyze by device type, new vs. returning users
+- Revenue impact: Calculate lost revenue at each drop-off point
+- A/B testing: Measure impact of checkout optimizations
 
 
 This analysis demonstrates how funnel analysis can reveal hidden conversion barriers and prioritize optimization efforts for maximum business impact.
