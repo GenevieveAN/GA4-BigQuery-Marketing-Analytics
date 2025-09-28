@@ -10,7 +10,7 @@ Analysis of marketing channel effectiveness using traffic, engagement, and reven
 - **Business Impact**: Informed budget reallocation recommendations
 
 
-### 📊 [E-commerce Funnel analysis](./channel-performance-analysis/)
+### 📊 [E-commerce Funnel analysis](funnel-analysis)
 This analysis demonstrates how funnel analysis can reveal hidden conversion barriers and prioritize optimization efforts for maximum business impact. 
 - **Key Finding**: All channels showed 'Cart to Checkout' as the biggest drop-off point. 
 - **Business Impact**: Informed budget reallocation recommendations
