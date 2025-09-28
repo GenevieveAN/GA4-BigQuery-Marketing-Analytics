@@ -80,7 +80,7 @@ Funnel Performance by Channel
 | **Paid Search** | 73.5% | 8.0% | 33.3% | 2.0% |
 | **Organic Search** | 73.4% | 14.8% | 16.9% | 1.8% |
 
-ChannelView→CartCart→CheckoutCheckout→PurchaseOverall ConversionDisplay76.5%38.5%40.0%11.8%Referral72.7%54.2%28.7%11.3%Direct82.6%16.0%40.0%5.3%Paid Search73.5%8.0%33.3%2.0%Organic Search73.4%14.8%16.9%1.8%
+
 Critical Discovery: Universal Cart-to-Checkout Bottleneck
 ALL channels show "Cart to Checkout" as the biggest drop-off point:
 
