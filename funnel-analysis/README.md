@@ -116,7 +116,7 @@ Lowest checkout completion (16.9%)
 
 
 
-Recommendations
+## Recommendations
 Priority 1: Fix Cart-to-Checkout Transition (Immediate)
 The universal drop-off pattern indicates a site-wide barrier. Investigate:
 
@@ -143,29 +143,25 @@ For Paid Channels:
 Reassess targeting - 2% conversion doesn't justify spend
 Reallocate budget to referral partnerships
 
-Expected Impact
+
+## Expected Impact
 Improving cart-to-checkout conversion by just 10% would yield:
 
-Referral: +17 purchases (29% increase)
-Direct: +24 purchases (133% increase)
-Organic: +41 purchases (342% increase)
+- Referral: +17 purchases (29% increase)
+- Direct: +24 purchases (133% increase)
+- Organic: +41 purchases (342% increase)
 
-Technical Skills Demonstrated
+
+## Technical Skills Demonstrated
 
 SQL: Complex queries with CTEs, CASE statements, UNNEST operations
 Data Analysis: Funnel metrics, conversion rate optimization
 Problem-Solving: Identified hidden bottlenecks in customer journey
 Business Acumen: Translated data insights into actionable recommendations
 
-How to Use This Analysis
 
-Clone this repository
-Replace the BigQuery dataset with your own Google Analytics data
-Adjust action_type mappings based on your implementation
-Run the analysis to identify your specific bottlenecks
-Implement recommendations and measure impact
 
-Next Steps
+## Next Steps
 
 Temporal analysis: Track funnel improvements over time
 Segmentation: Analyze by device type, new vs. returning users
