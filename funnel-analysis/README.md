@@ -117,10 +117,10 @@ Lowest checkout completion (16.9%)
 
 
 ## Recommendations
-Priority 1: Fix Cart-to-Checkout Transition (Immediate)
+- Priority 1: Fix Cart-to-Checkout Transition (Immediate)
 The universal drop-off pattern indicates a site-wide barrier. Investigate:
 
-Forced account creation - Implement guest checkout
+- Forced account creation - Implement guest checkout
 Hidden shipping costs - Show shipping calculator in cart
 Trust issues - Add security badges, return policy visibility
 Technical issues - Test checkout button functionality across devices
