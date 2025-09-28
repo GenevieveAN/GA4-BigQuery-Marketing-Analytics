@@ -12,6 +12,5 @@ Analysis of marketing channel effectiveness using traffic, engagement, and reven
 
 ### 📊 [E-commerce Funnel analysis](./channel-performance-analysis/)
 This analysis demonstrates how funnel analysis can reveal hidden conversion barriers and prioritize optimization efforts for maximum business impact. 
-Deep-dive analysis of customer drop-off patterns across marketing channels using Google Analytics sample data to identify conversion bottlenecks and optimization opportunities.
 - **Key Finding**: All channels showed 'Cart to Checkout' as the biggest drop-off point. 
 - **Business Impact**: Informed budget reallocation recommendations
