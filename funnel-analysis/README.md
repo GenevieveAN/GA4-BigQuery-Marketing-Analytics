@@ -27,12 +27,13 @@ GROUP BY hit.eCommerceAction.action_type
 ### 2. Funnel Stage Mapping
 Based on Universal Analytics Enhanced Ecommerce documentation:
 
-Action Type 1: Product views/clicks
-Action Type 2: Add to cart
-Action Type 3: Remove from cart
-Action Type 4: Checkout initiation (rarely used)
-Action Type 5: Checkout steps (payment, shipping)
-Action Type 6: Purchase completion
+- Action Type 1: Product views/clicks
+- Action Type 2: Add to cart
+- Action Type 3: Remove from cart
+- Action Type 4: Checkout initiation (rarely used)
+- Action Type 5: Checkout steps (payment, shipping)
+- Action Type 6: Purchase completion
+
 
 
 ### 3. Complete Funnel Analysis Query
