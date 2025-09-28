@@ -24,7 +24,7 @@ WHERE hit.eCommerceAction.action_type IS NOT NULL
 GROUP BY hit.eCommerceAction.action_type
 
 
-### 2. Based on Universal Analytics Enhanced Ecommerce documentation:
+## 2. Based on Universal Analytics Enhanced Ecommerce documentation:
 
 Action Type 1: Product views/clicks
 Action Type 2: Add to cart
@@ -34,6 +34,8 @@ Action Type 5: Checkout steps (payment, shipping)
 Action Type 6: Purchase completion
 
 ### 3. Complete Funnel Analysis Query
+```sql
+
 WITH funnel_data AS (
   SELECT 
     channelGrouping,
