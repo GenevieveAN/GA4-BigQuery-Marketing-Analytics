@@ -8,3 +8,9 @@ A collection of marketing analytics projects using Google Analytics 4 data and B
 Analysis of marketing channel effectiveness using traffic, engagement, and revenue metrics.
 - **Key Finding**: Referral traffic delivered the highest revenue per session ($12.58 vs $6.37 for Direct traffic)
 - **Business Impact**: Informed budget reallocation recommendations
+
+
+### 📊 [E-commerce Funnel analysis](./channel-performance-analysis/)
+Analysis of marketing channel effectiveness using traffic, engagement, and revenue metrics.
+- **Key Finding**: Referral traffic delivered the highest revenue per session ($12.58 vs $6.37 for Direct traffic)
+- **Business Impact**: Informed budget reallocation recommendations
