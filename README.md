@@ -12,7 +12,7 @@ Analysis of marketing channel effectiveness using traffic, engagement, and reven
 
 ### 📊 [E-commerce Funnel analysis](funnel-analysis)
 This analysis demonstrates how funnel analysis can reveal hidden conversion barriers and prioritize optimization efforts for maximum business impact. 
-- **Key Finding**: Rather than optimizing multiple touchpoints across different channels, addressing one universal bottleneck delivers maximum ROI with minimal development effort.
+- **Key Finding**: Rather than optimizing multiple touchpoints across different channels, addressing one universal bottleneck can deliver maximum ROI with minimal development effort.
 - **Business Impact**: This funnel analysis revealed that **all marketing channels shared the same critical bottleneck: cart-to-checkout transition**, with 46-92% of users abandoning at this stage. By fixing this single friction point, the business could:
 
   - Increase overall conversions by 30-300% across channels
