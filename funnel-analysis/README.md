@@ -117,31 +117,28 @@ Lowest checkout completion (16.9%)
 
 
 ## Recommendations
-- Priority 1: Fix Cart-to-Checkout Transition (Immediate)
-The universal drop-off pattern indicates a site-wide barrier. Investigate:
-
+### Priority 1: Fix Cart-to-Checkout Transition (Immediate)
+The universal drop-off pattern indicates a site-wide barrier. 
+Investigate:
 - Forced account creation - Implement guest checkout
-Hidden shipping costs - Show shipping calculator in cart
-Trust issues - Add security badges, return policy visibility
-Technical issues - Test checkout button functionality across devices
+- Hidden shipping costs - Show shipping calculator in cart
+-  issues - Add security badges, return policy visibility
+-  issues - Test checkout button functionality across devices
 
-Priority 2: Channel-Specific Optimizations
+### Priority 2: Channel-Specific Optimizations
 For Referral (High-value traffic):
-
-Implement cart abandonment email campaigns
-Test free shipping thresholds
-Add urgency messaging for users with items in cart
+- Implement cart abandonment email campaigns
+- Test free shipping thresholds
+- Add urgency messaging for users with items in cart
 
 For Direct (Brand-loyal traffic):
-
-Simplify checkout initiation
-Add express checkout options (Apple Pay, PayPal)
-These users trust you but face friction
+- Simplify checkout initiation
+- Add express checkout options (Apple Pay, PayPal)
+- These users trust you but face friction
 
 For Paid Channels:
-
-Reassess targeting - 2% conversion doesn't justify spend
-Reallocate budget to referral partnerships
+- Reassess targeting - 2% conversion doesn't justify spend
+- Reallocate budget to referral partnerships
 
 
 ## Expected Impact
