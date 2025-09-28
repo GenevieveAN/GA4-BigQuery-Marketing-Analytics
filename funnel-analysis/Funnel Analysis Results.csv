@@ -1,0 +1,8 @@
+channelGrouping,product_views,add_to_cart,remove_from_cart,checkout_start,checkout_steps,purchases,net_cart_adds,cart_abandonment_rate,view_to_cart_rate,cart_to_checkout_rate,checkout_completion_rate,overall_conversion_rate,biggest_drop_off_stage,lost_at_cart,lost_before_checkout,lost_during_checkout
+Display,17,13,11,0,5,2,2,84.6,76.5,38.5,40,11.8,Cart to Checkout Process,4,8,3
+Referral,513,373,249,39,202,58,124,66.8,72.7,54.2,28.7,11.3,Cart to Checkout Process,140,171,144
+Direct,340,281,57,8,45,18,224,20.3,82.6,16,40,5.3,Cart to Checkout Process,59,236,27
+Paid Search,102,75,17,0,6,2,58,22.7,73.5,8,33.3,2,Cart to Checkout Process,27,69,4
+Organic Search,655,481,157,28,71,12,324,32.6,73.4,14.8,16.9,1.8,Cart to Checkout Process,174,410,59
+Affiliates,8,5,2,0,1,0,3,40,62.5,20,0,0,Cart to Checkout Process,3,4,1
+Social,41,39,1,0,0,0,38,2.6,95.1,0,,0,Cart to Checkout Process,2,39,0
