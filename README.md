@@ -19,5 +19,5 @@ This analysis demonstrates how funnel analysis can reveal hidden conversion barr
   - Increase overall conversions by 30-300% across channels
   - Generate 82+ additional purchases from existing traffic
   - Eliminate wasted ad spend on underperforming channels (Paid Search at 2% conversion)
-  - Reallocate budget to high-performing channels (Referral: 11.3% conversion, $12.59/session)
+  - Reallocate budget to high-performing channels (Referral: 11.3% conversion, $12.58/session)
 
