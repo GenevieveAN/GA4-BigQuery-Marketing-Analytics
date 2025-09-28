@@ -22,9 +22,10 @@ FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`,
 UNNEST(hits) AS hit
 WHERE hit.eCommerceAction.action_type IS NOT NULL
 GROUP BY hit.eCommerceAction.action_type
+```
 
-
-## 2. Based on Universal Analytics Enhanced Ecommerce documentation:
+### 2. Funnel Stage Mapping
+Based on Universal Analytics Enhanced Ecommerce documentation:
 
 Action Type 1: Product views/clicks
 Action Type 2: Add to cart
@@ -33,9 +34,9 @@ Action Type 4: Checkout initiation (rarely used)
 Action Type 5: Checkout steps (payment, shipping)
 Action Type 6: Purchase completion
 
+
 ### 3. Complete Funnel Analysis Query
 ```sql
-
 WITH funnel_data AS (
   SELECT 
     channelGrouping,
@@ -67,10 +68,8 @@ SELECT
 FROM funnel_data
 WHERE product_views > 0
 ORDER BY overall_conversion_rate DESC
-
-
-
-Key Findings
+```
+### Key Findings
 Funnel Performance by Channel
 ChannelView→CartCart→CheckoutCheckout→PurchaseOverall ConversionDisplay76.5%38.5%40.0%11.8%Referral72.7%54.2%28.7%11.3%Direct82.6%16.0%40.0%5.3%Paid Search73.5%8.0%33.3%2.0%Organic Search73.4%14.8%16.9%1.8%
 Critical Discovery: Universal Cart-to-Checkout Bottleneck
@@ -160,3 +159,7 @@ Temporal analysis: Track funnel improvements over time
 Segmentation: Analyze by device type, new vs. returning users
 Revenue impact: Calculate lost revenue at each drop-off point
 A/B testing: Measure impact of checkout optimizations
+
+
+This analysis demonstrates how funnel analysis can reveal hidden conversion barriers and prioritize optimization efforts for maximum business impact.
+
